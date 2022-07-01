@@ -2,8 +2,8 @@ import React,{useEffect,useState} from "react"
 import { Routes,Route, Link } from "react-router-dom"
 import { Main } from "./context/MainContext"
 import Home from "./components/Home"
-import Login from "./components/Home"
-import Register from "./components/Home"
+import Login from "./components/Login"
+import Register from "./components/Register"
 export default function App(){
 return(
   <>
