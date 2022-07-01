@@ -2,13 +2,12 @@ import React,{useRef,useContext, useState} from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import { Main } from '../../context/MainContext'
 const LoginForm = () => {
-    const {setIsLogged} =useContext(Main)
+    const {setIsLogged,HideWarning,warning} =useContext(Main)
 const navigate=useNavigate()
 const phone=useRef(null)
 const a=localStorage.getItem("massagedata1")
 
 const password=useRef(null)
-const [warning,HideWarning]=useState(false)
 if(a==null || undefined)
 HideWarning(true)
     function handleSubmit(e){

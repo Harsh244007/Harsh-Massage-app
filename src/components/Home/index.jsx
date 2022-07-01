@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom'
 import { Main } from '../../context/MainContext'
 const Index = () => {
 const {IsLogged} =useContext(Main)
+
   return (
 <>
     {

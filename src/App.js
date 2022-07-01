@@ -8,10 +8,11 @@ import NavBar from "./components/NavBar"
 import Second from "./components/Register/stagetwo"
 export default function App(){
 const [IsLogged, setIsLogged] = useState(false)
+const [warning,HideWarning]=useState(false)
 const [stepone,setStepone]=useState({})
 return(
   <>
-  <Main.Provider value={{IsLogged,setIsLogged,stepone,setStepone}}>
+  <Main.Provider value={{IsLogged,setIsLogged,stepone,setStepone,warning,HideWarning}}>
   <NavBar/>
   <Routes>
     <Route path="/" element={<Home/>} />

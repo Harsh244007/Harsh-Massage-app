@@ -1,24 +1,23 @@
 import React,{useContext,useRef} from 'react'
 import { Link,useNavigate } from 'react-router-dom'
-import { Main } from '../../context/MainContext'
 
 const Second = () => {
     const Navigate=useNavigate()
     const email=useRef(null)
     const gender=useRef(null)
+    const time=useRef(null)
     function handleSubmit(e){
-    e.preventDefault()   
-    // console.log(email.current.value,gender.current.value)
+    e.preventDefault()
     var a=[];
     a.push(email.current.value)
     a.push(gender.current.value)
+    a.push(time.current.value)
     localStorage.setItem("massagedata2",a)
     Navigate("/login") 
     }
-    function prev(){
+    const prev=()=>{
 Navigate("/register")
     }
-
   return (
  <div style={{display:"flex",gap:"20px",flexDirection:"column",width:"100%",marginTop:"2vw",alignItems:"center"}}>
         <h1>Registration Page 2</h1>
@@ -29,6 +28,18 @@ Navigate("/register")
             	<option value="none">Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
+        </select>
+        
+        <select ref={time} style={{width:"50%"}} name='time' >
+            	<option value="none">Prefered Day</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+            
         </select>
         
         <br/>
