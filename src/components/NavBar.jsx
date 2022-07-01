@@ -2,10 +2,12 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Main } from "../context/MainContext"
 const NavBar = () => {
-const {IsLogged,setIsLogged} =useContext(Main)
+const {IsLogged,setIsLogged,setwasLogged} =useContext(Main)
 // console.log(IsLogged)
 const logout=()=>{
+    localStorage.removeItem("wasloggedin")
 setIsLogged(false)
+setwasLogged(false)
 }
   return (
     <div>

@@ -10,11 +10,13 @@ const First = () => {
     const navigate =useNavigate()
     function handleSubmit(e){
         e.preventDefault()
-        var a=[];
-    a.push(name.current.value)
-    a.push(phone.current.value)
-    a.push(password.current.value)
-    localStorage.setItem("massagedata1",a)
+     function data(a,b,c){
+        this.name=a;
+        this.phone=b;
+        this.password=c;
+     }
+     const a= new data(name.current.value,phone.current.value,password.current.value)
+    localStorage.setItem("massagedata1",JSON.stringify(a))
     navigate("/Registersecondpage") 
     }
   return (

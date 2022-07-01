@@ -1,5 +1,5 @@
-import React,{useContext,useRef} from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import React,{useRef} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Second = () => {
     const Navigate=useNavigate()
@@ -8,11 +8,14 @@ const Second = () => {
     const time=useRef(null)
     function handleSubmit(e){
     e.preventDefault()
-    var a=[];
-    a.push(email.current.value)
-    a.push(gender.current.value)
-    a.push(time.current.value)
-    localStorage.setItem("massagedata2",a)
+   
+     function data(a,b,c){
+        this.email=a;
+        this.gender=b;
+        this.time=c;
+     }
+     const a= new data(email.current.value,gender.current.value,time.current.value)
+    localStorage.setItem("massagedata2",JSON.stringify(a))
     Navigate("/login") 
     }
     const prev=()=>{

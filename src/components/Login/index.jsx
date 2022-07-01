@@ -3,16 +3,17 @@ import { Navigate } from 'react-router-dom'
 import { Main } from '../../context/MainContext'
 import LoginForm from "./loginForm"
 const Index = () => {
-const {IsLogged} =useContext(Main)
-
-console.log(IsLogged)
+const {IsLogged,setIsLogged,wasLogged} =useContext(Main)
+if(wasLogged)
+setIsLogged(true)
   return (
     <>
     {
     IsLogged?
-    <Navigate to="/home"></Navigate>
+    <Navigate to="/"></Navigate>
     :<LoginForm/>
     }
+    {/* <h1>ha</h1> */}
     </>
   )
 }

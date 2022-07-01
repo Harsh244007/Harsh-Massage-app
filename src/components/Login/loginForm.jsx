@@ -1,34 +1,41 @@
-import React,{useRef,useContext, useState} from 'react'
+import React,{useRef,useContext} from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import { Main } from '../../context/MainContext'
 const LoginForm = () => {
     const {setIsLogged,HideWarning,warning} =useContext(Main)
 const navigate=useNavigate()
-const phone=useRef(null)
-const a=localStorage.getItem("massagedata1")
+const phon=useRef(null)
+const a=JSON.parse(localStorage.getItem("massagedata1"))
 
-const password=useRef(null)
-if(a==null || undefined)
+const passwor=useRef(null)
+if(a==null)
 HideWarning(true)
     function handleSubmit(e){
 e.preventDefault()
-if(phone==a[0] && password==a[1])
+function data(b,c){
+        this.phon=b;
+        this.passwor=c;
+     }
+     const z= new data(phon.current.value,passwor.current.value)
+if(z.phon===a.phone && z.passwor===a.password)
 {setIsLogged(true)
-navigate("/")}
-else if(phone!=a[0] && password==a[1])
+navigate("/")
+localStorage.setItem("wasloggedin","Logged in")
+}
+else if(z.phon!==a.phone && z.passwor===a.password)
 alert("Invalid Phone kindly try again")
-else if(phone==a[0] && password!=a[1])
+else if(z.phon===a.phone && z.passwor!==a.password)
 alert("Invalid Password kindly try again")
-else if(phone!=a[0] && password!=a[1])
+else if(z.phon!==a.phone && z.passwor!==a.password)
 alert("Invalid Phone and Password kindly try again")
     }
   return (
     <div style={{display:"flex",gap:"20px",flexDirection:"column",width:"100%",marginTop:"2vw",alignItems:"center"}}>
         <h1> Login Below</h1>
           <form onSubmit={handleSubmit}>
-        <input ref={phone} style={{width:"100%"}} placeholder='Enter your number' className='phone' type="number"/>
+        <input ref={phon} style={{width:"100%"}} placeholder='Enter your number' className='phone' type="number"/>
         <br/>
-        <input ref={password} style={{width:"100%"}} className='name' placeholder='Enter your Password' type="text"/>
+        <input ref={passwor} style={{width:"100%"}} className='name' placeholder='Enter your Password' type="text"/>
         <br/>
         <br/>
          <button style={{margin:"0 2vw"}} type="submit">Log in</button>
