@@ -6,20 +6,22 @@ import Login from "./components/Login"
 import Register from "./components/Register"
 import NavBar from "./components/NavBar"
 import Second from "./components/Register/stagetwo"
+import Calendar from "./components/Calendar"
 export default function App(){
 const [wasLogged, setwasLogged] = useState(false)
-useEffect(()=>{if(localStorage.getItem("wasloggedin")!=null){
-setwasLogged(true)
-}},[wasLogged])
 const [IsLogged, setIsLogged] = useState(false)
 const [warning,HideWarning]=useState(false)
 const [stepone,setStepone]=useState({})
+useEffect(()=>{if(localStorage.getItem("wasloggedin")!=null){
+setwasLogged(true)
+}},[wasLogged])
 return(
   <>
   <Main.Provider value={{IsLogged,setIsLogged,wasLogged,setwasLogged,stepone,setStepone,warning,HideWarning}}>
   <NavBar/>
   <Routes>
     <Route path="/" element={<Home/>} />
+    <Route path="/bookingpage" element={<Calendar/>}/>
     <Route path="/Login" element={<Login/>} />
     <Route path="/Register" element={<Register/>} />
     <Route path="/Registersecondpage" element={<Second/>} />

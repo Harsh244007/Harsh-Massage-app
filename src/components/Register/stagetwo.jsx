@@ -6,15 +6,17 @@ const Second = () => {
     const email=useRef(null)
     const gender=useRef(null)
     const time=useRef(null)
+    const prefered=useRef(null)
     function handleSubmit(e){
     e.preventDefault()
    
-     function data(a,b,c){
+     function data(a,b,c,d){
         this.email=a;
         this.gender=b;
         this.time=c;
+        this.prefered=d;
      }
-     const a= new data(email.current.value,gender.current.value,time.current.value)
+     const a= new data(email.current.value,gender.current.value,time.current.value,prefered.current.value)
     localStorage.setItem("massagedata2",JSON.stringify(a))
     Navigate("/login") 
     }
@@ -44,6 +46,16 @@ Navigate("/register")
             <option value="Sunday">Sunday</option>
             
         </select>
+        <br/>
+        <select style={{width:"100%"}} name="prefred" ref={prefered}>
+           	<option value="none">Prefered Message</option>
+            <option value="Swedish">Swedish massage it's a gentle full-body massage </option>
+            <option value="Hot Stone">Hot stone is a gentle full body massage</option>
+            <option value="Aromatherapy">Aromatherapy is a gentle full body massage</option>
+            <option value="Deep">Deep tissue is a gentle full body massage</option>
+            <option value="Sports">Sports massage is a full body massage</option>
+            <option value="Trigger Body">Trigger body is a gentle massage</option>
+            </select>
         
         <br/>
         <br/>
